@@ -2,11 +2,61 @@
 # 201930301 김서연
 
 ## 04/30
-> 1.
+> 1. 컴포넌트 스타일시트를 외부로 분리하기
+```java
+import { StyleSheet } from 'react-native' //스타일시트 외부로 분리
+const style = StyleSheet.create({ //create로 css 생성하고, json으로 속성 설정
+  container: {
+    ...baseContainerStyles,
+    backgroundColor: Colors.dark
+  },
+})
+export { styles, buttons } //상수 styles, buttons 외부에서 사용할 수 있도록 export
+```
+> 2. 버튼을 클릭할 때 마다 darkTheme의 상태가 바뀌도록 !(Not) 사용
+```
+this.setState({darkTheme: !this.state.darkTheme})
+```
+> 3. bind -> 전역에서 사용가능 - 바인딩은 constructor 맨 밑에 작성
+  - 예외 발생하지 않도록 컴포넌트에 bind
+```java
+constructor(props) {
+    super(props);
+    this.state = {
+      darkTheme: false
+    }
+    this.toggleTheme = this.toggleTheme.bind(this);
+  }
+```
+> 4. Flatten Style
+  - 같은 style이면 마지막에 선언된 style로 지정
 
 ## 04/16 (github연동 오류로 4월 16일 README파일이 안올라갔었습니다,,!)
 > 1. TodoList에 일정 추가하기
-> 2. 화면에 TabBar 추가하기 
+  - TodoList컴포넌트에서 Todo컴포넌트로 App의 todo 배열에 있는 item들 출력하기
+```java
+todos = todos.map((todo, i) => {
+    return (
+      <Todo
+        deleteTodo={deleteTodo}
+        toggleComplete={toggleComplete}
+        key={i}
+        todo={todo} /> //todo item props
+    )
+  })
+```
+> 2. 화면에 TabBar컴포넌트로 하단바 추가하기
+  - 하단바의 아이템들은 <TabBarItem>태그로 묶어주기
+```java
+<View style={styles.container}>
+    <TabBarItem  type={type} title='All'
+      setType={() => setType('All')} />
+    <TabBarItem type={type} border title='Active'
+      setType={() => setType('Active')} />
+    <TabBarItem type={type} border title='Complete'
+      setType={() => setType('Complete')} />
+  </View>
+```
 
 ## 04/09
 > 1. 각각의 컴포넌트 import하기

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableHighlight } from 'react-native'
-import { styles, buttons } from './styles' 
-
-let todoIndex = 0
+import { StyleSheet, View, Button } from 'react-native'
+import getStyleSheet from './styles' 
 
 export default class App extends Component {
   constructor(props) {
@@ -10,10 +8,10 @@ export default class App extends Component {
     this.state = {
       darkTheme: false
     }
-    this.toggleTheme = this.toggleTheme();
+    this.toggleTheme = this.toggleTheme.bind(this);
   }
 
-  toggleTheme = () => {
+  toggleTheme() {
     this.setState({darkTheme: !this.state.darkTheme})
   }
 
@@ -23,7 +21,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.box}>
-          <Button title={backgroundColor onPress={this.toggleTheme}} />
+          <Button title={backgroundColor} onPress={this.toggleTheme} />
         </View>
       </View>
     )

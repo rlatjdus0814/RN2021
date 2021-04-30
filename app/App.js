@@ -4,23 +4,27 @@ import { styles, buttons } from './styles'
 
 let todoIndex = 0
 
-class App extends Component {
-  constructor() {
-    super()
+export default class App extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      inputValue: '',
-      todos: [],
-      type: 'All'
+      darkTheme: false
     }
+    this.toggleTheme = this.toggleTheme();
+  }
+
+  toggleTheme = () => {
+    this.setState({darkTheme: !this.state.darkTheme})
   }
 
   render() {
-    const { inputValue, todos, type } = this.state
+    const styles = getStyleSheet(this.state.darkTheme);
+    const backgroundColor = StyleSheet.flatten(styles.container).backgroundColor;
     return (
       <View style={styles.container}>
-        <TouchableHighlight style={buttons.primary}>
-          <Text>Sample Text</Text>
-        </TouchableHighlight>
+        <View style={styles.box}>
+          <Button title={backgroundColor onPress={this.toggleTheme}} />
+        </View>
       </View>
     )
   }
@@ -28,4 +32,3 @@ class App extends Component {
 
 
 
-export default App

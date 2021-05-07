@@ -2,12 +2,65 @@
 # 201930301 김서연
 
 ## 05/07
-> 1. 
+> 1. 구조분해할당
+ - 배열이나 객체의 속성을 해체
+
+  ### 객체에서 변수를 재할당
+ ```java 
+  const foobar = {
+    foo: 100,
+    bar: 500,
+  }
+ ```
+
+  ### foobar에 있는 foo변수를 woo로 변경하고 싶을 때
+ ① 구조분해 할당 없이 변수명 재할당
+  ```java
+    const woo = foobar.foo
+  ```
+ ② 구조분해 할당 이용
+  ```java
+  1. const { foo:woo } = foobar
+  2. console.log(woo) //100
+  3. console.log(foobar) //let new = { foo: 100:, bar: 500 }
+  ```
+ ③ React에서 자주 사용되는 구조분해 할당
+  ```java
+    this.state={
+      foo: 100,
+      bar: 200,
+    }
+    const { foo, bar } = this.state;
+  ```
+
+### 새로운 변수 이름으로 할당
+  - 새로운 변수 선언 후 속성들을 해체 -> 다른 이름의 변수로 다시 할당
+  ```java
+    var new = { a:42, b: true};
+    var { a: num, b: bool } = new;
+
+    console.log(num); //42
+    console.log(bool); //true
+  ```
+
+> 2. styel 변수로 지정하기
+  - profileCardColor변수에 색상이름 작성 -> style속성에 해당 태그에 배경색 지정 
+  ```java
+  const profileCardColor = 'dodgerblue'
+
+  const styles = StyleSheet.create({
+    cardContainer: {
+      backgroundColor: profileCardColor,
+    }
+  })
+  ```
+
+
 
 ## 04/30
 > 1. 컴포넌트 스타일시트를 외부로 분리하기
 ```java
-import { StyleSheet } from 'react-native' //스타일시트 외부로 분리
+import { StyleSheet } from 'react';
 const style = StyleSheet.create({ //create로 css 생성하고, json으로 속성 설정
   container: {
     ...baseContainerStyles,

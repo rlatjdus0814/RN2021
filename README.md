@@ -47,6 +47,13 @@
   - 컴포넌트의 테두리로부터 자식 요소의 간격에 적용
   - padding 속성 : padding, paddingTop, paddingRight, paddingBottom, paddingLeft
   - 해당 컴포넌트의 경계선에 제한 되지 않음
+
+  ### 5. Position(포지션)
+    : 컴포넌트를 절대 위치를 이용해 특정한 위치에 배치
+  - position 속성 : relative(기본값), absolute
+  - relative로 속성 지정 -> 다른 요소들에 상대적으로 배치
+  - absolute로 속성 지정 -> 부모 요소의 위치를 기준 절대적으로 배치
+  - css만큼 다양한 옵션 지원x
  
 ## 05/07
 > 1. 구조분해할당

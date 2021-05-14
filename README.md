@@ -10,16 +10,16 @@
   > ① 컴포넌트 전체에 속성을 지정 가능\
   > ② top, right, bottom, left를 이용해 각 측면에 속성 지정 가능
   - borderColor : 테두리의 색상 
-  - borderRadius : 컴포넌트의 모서리에 사용하는 속성 
+  - borderRadius : 테두리의 모서리를 둥글게 하는 속성 
   - borderStyle : 테두리의 스타일, 실선이나 점선 등 표현
   - borderWidth : 테두리의 크기, 숫자값
   ```java
    const styles = StyleSheet.create({
-     container: {
-borderColor: 'red',
-borderRadius: 15,
-borderStyle: 'dashed',
-borderWidth: 3
+    container: {
+      borderColor: 'red',
+      borderRadius: 15,
+      borderStyle: 'dashed',
+      borderWidth: 3
      }
    })
   ```
@@ -27,7 +27,11 @@ borderWidth: 3
   2. color, width, style 속성
   - borderWidth속성만 지정하면 기본적으로 borderColor는 'black', borderStyle은 'solid'(실선)로 지정됨
 
-  3. 
+  3. borderRadius로 모양 만들기\
+  : borderRadius속성은 전체 모서리에 적용
+  - <Text>는 부모 컴포넌트의 배경색을 상속\
+    -> 도형에 나타나는 글자를 크거나 길면 배경이 테두리와 겹침
+    -> <Text>의 배경을 투명하게 하거나 margin 속성 이용해서 해결
 
 ## 05/07
 > 1. 구조분해할당

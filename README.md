@@ -6,7 +6,7 @@
   - border : 컴포넌트 경계의 테두리
   - 테두리가 있어야 화면의 요소들을 구체적으로 볼 수 있음
   
-  1. border속성들
+### 1. border속성들
   > ① 컴포넌트 전체에 속성을 지정 가능\
   > ② top, right, bottom, left를 이용해 각 측면에 속성 지정 가능
   - borderColor : 테두리의 색상 
@@ -24,15 +24,30 @@
    })
   ```
 
-  2. color, width, style 속성
+### 2. color, width, style 속성
   - borderWidth속성만 지정하면 기본적으로 borderColor는 'black', borderStyle은 'solid'(실선)로 지정됨
 
-  3. borderRadius로 모양 만들기\
+### 3. borderRadius로 모양 만들기
   : borderRadius속성은 전체 모서리에 적용
-  - <Text>는 부모 컴포넌트의 배경색을 상속\
-    -> 도형에 나타나는 글자를 크거나 길면 배경이 테두리와 겹침
-    -> <Text>의 배경을 투명하게 하거나 margin 속성 이용해서 해결
+  - Text 컴포넌트는 부모 컴포넌트의 배경색을 상속\
+    -> 도형에 나타나는 글자를 크거나 길면 배경이 테두리와 겹침\
+    -> Text 컴포넌트의 배경을 투명하게 하거나 margin 속성 이용해서 해결
 
+### 4. Margin(마진)과 Padding(패딩)
+  - margin과 padding을 같이 사용 -> 컴포넌트를 레이아웃 내에 유연하게 배치 가능
+  1. Margin(마진)\
+  : 컴포넌트 사이의 위치를 상대적으로 배치
+  - 다른 컴포넌트나 부모컴포넌트로부터의 간격을 설정
+  - margin 속성 : margin, marginTop, marginRight, marginBottom, marginLeft
+  - margin 속성만 지정 -> 모든 측면이 동일하게 적용
+  - 음수 margin의 경우 잘려나가는 경우 발생
+
+  2. Padding(패딩)\
+  : 컴포넌트의 테두리로부터 컴포넌트의 상대 위치 정의\
+  - 컴포넌트의 테두리로부터 자식 요소의 간격에 적용
+  - padding 속성 : padding, paddingTop, paddingRight, paddingBottom, paddingLeft
+  - 해당 컴포넌트의 경계선에 제한 되지 않음
+ 
 ## 05/07
 > 1. 구조분해할당
  - 배열이나 객체의 속성을 해체

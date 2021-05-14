@@ -6,25 +6,25 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.exampleContainer}>
-          <Example style={{}}>
+          <Example>
             <CenteredText>A</CenteredText>
           </Example>
         </View>
 
         <View style={styles.exampleContainer}>
-          <Example style={{paddingTop: 50}}>
+          <Example style={{marginTop: 50}}>
             <CenteredText>B</CenteredText>
           </Example>
         </View>
 
         <View style={styles.exampleContainer}>
-          <Example style={{paddingTop: 50, paddingLeft: 10}}>
+          <Example style={{marginTop: 50, marginLeft: 10}}>
             <CenteredText>C</CenteredText>
           </Example>
         </View>
 
         <View style={styles.exampleContainer}>
-          <Example style={{paddingLeft: -10, paddingTop: -10}}>
+          <Example style={{marginLeft: -10, marginTop: -10}}>
             <CenteredText>D</CenteredText>
           </Example>
         </View>
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   exampleContainer: {
     width: 120,
     height: 120,
+    borderStyle: 'solid',
     marginLeft: 20,
     marginBottom: 20,
     borderWidth: 1,
@@ -71,8 +72,6 @@ const styles = StyleSheet.create({
   centeredText: {
     textAlign: 'center',
     margin: 10,
-    borderWidth: 1,
-    backgroundColor: 'lightgrey',
   }
 });
 

@@ -5,20 +5,25 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Example style={{borderWidth: 1}}>
-          <Text>borderWidth: 1</Text> 
+        <Example style={{borderRadius: 20}}>
+          <CenteredText>
+            Example 1:{"\n"} 네 모서리가 둥근 사각형
+          </CenteredText> 
         </Example>
-        <Example style={{borderWidth: 3, borderLeftWidth: 0}}>
-          <Text>borderWidth: 3, borderLeftWidth: 0</Text> 
+        <Example style={{borderTopRightRadius: 60, borderBottomRightRadius: 60}}>
+          <CenteredText>
+            Example 2:{"\n"} 오른쪽 두 모서리가 둥근 사각형
+          </CenteredText> 
         </Example>
-        <Example style={{borderWidth: 3, borderLeftColor: 'red'}}>
-          <Text>borderWidth: 3, borderLeftWidth: 'red'</Text> 
+        <Example style={{borderTopLeftRadius: 30, borderBottomRightRadius: 30}}>
+          <CenteredText>
+            Example 3:{"\n"} 대각선 반대편 모서리가 둥근 사각형
+          </CenteredText> 
         </Example>
-        <Example style={{borderLeftWidth: 3}}>
-          <Text>borderLeftWidth: 3</Text> 
-        </Example>
-        <Example style={{borderWidth: 1, borderStyle: 'dashed'}}>
-          <Text>borderWidth: 1, borderStyle: 'dashed'</Text> 
+        <Example style={{borderRadius: 60}}>
+          <CenteredText>
+            Example 4:{"\n"} 원
+          </CenteredText> 
         </Example>
       </View>
     );
@@ -26,23 +31,38 @@ class App extends Component {
 }
 
 const Example = (props) => (
-  <View style={[styles.exmaple, props.style]}>
+  <View style={[styles.example, props.style]}>
     {props.children}
   </View>
-)
+);
 
-const profileCardColor = 'dodgerblue'
+const CenteredText = (props) => (
+  <Text style={[styles.centeredText, props.style]}>
+    {props.children}
+  </Text>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 75,
   },
-  exmaple: {
-    marginBottom: 15,
+  example: {
+    width: 120,
+    height: 120,
+    marginLeft: 20,
+    marginBottom: 20,
+    backgroundColor: 'grey',
+    borderWidth: 2,
+    justifyContent: 'center',
+  },
+  centeredText: {
+    textAlign: 'center',
+    margin: 10,
   }
-})
+});
 
 export default App 
 

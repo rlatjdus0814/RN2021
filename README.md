@@ -1,6 +1,34 @@
 # React-Native 2021
 # 201930301 김서연
 
+## 05/14
+### border 속성 지정하기
+  - border : 컴포넌트 경계의 테두리
+  - 테두리가 있어야 화면의 요소들을 구체적으로 볼 수 있음
+  
+  1. border속성들
+  > ① 컴포넌트 전체에 속성을 지정 가능\
+  > ② top, right, bottom, left를 이용해 각 측면에 속성 지정 가능
+  - borderColor : 테두리의 색상 
+  - borderRadius : 컴포넌트의 모서리에 사용하는 속성 
+  - borderStyle : 테두리의 스타일, 실선이나 점선 등 표현
+  - borderWidth : 테두리의 크기, 숫자값
+  ```java
+   const styles = StyleSheet.create({
+     container: {
+borderColor: 'red',
+borderRadius: 15,
+borderStyle: 'dashed',
+borderWidth: 3
+     }
+   })
+  ```
+
+  2. color, width, style 속성
+  - borderWidth속성만 지정하면 기본적으로 borderColor는 'black', borderStyle은 'solid'(실선)로 지정됨
+
+  3. 
+
 ## 05/07
 > 1. 구조분해할당
  - 배열이나 객체의 속성을 해체

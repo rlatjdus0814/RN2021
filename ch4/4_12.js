@@ -12,13 +12,13 @@ class App extends Component {
         </View>
 
         <View style={styles.exampleContainer}>
-          <Example style={{paddingTop: 50}}>
+          <Example style={{paddingTop: 10}}>
             <CenteredText>B</CenteredText>
           </Example>
         </View>
 
         <View style={styles.exampleContainer}>
-          <Example style={{paddingTop: 50, paddingLeft: 10}}>
+          <Example style={{paddingTop: 20, paddingLeft: 10}}>
             <CenteredText>C</CenteredText>
           </Example>
         </View>

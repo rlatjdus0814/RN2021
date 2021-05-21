@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Image, Text, Platform } from 'react-native'
 
+// 5.1 ProfileCard 컴폰너트에 음영 효과 넣기
 class App extends Component {
   render() {
     return (

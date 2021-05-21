@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Image, Text, Platform } from 'react-native'
 
+//iOS와 Android에서 모노스페이스 폰트 표시하기
 class App extends Component {
   render() {
     return (
@@ -47,18 +48,6 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderStyle: 'solid',
     borderRadius: 20,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset:{
-          height: 10,
-        },
-        shadowOpacity: 1,
-      },
-      android: {
-        elevation: 15,
-      },
-    }),
   },
   cardImageContainer: {
     alignItems: 'center',
@@ -70,20 +59,6 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     marginTop: 30,
     paddingTop: 15,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset:{
-          height: 10,
-        },
-        shadowOpacity: 1,
-      },
-      android: {
-        borderWidth: 3,
-        borderColor: 'black',
-        elevation: 15,
-      },
-    }),
   },
   cardImage: {
     width: 80,
@@ -92,14 +67,17 @@ const styles = StyleSheet.create({
   cardName: {
     color: 'white',
     marginTop: 30,
+    ...Platform.select({
+      ios: {
+        fontFamily: 'American Typewriter',
+      },
+      android: {
+        fontFamily: 'monospace',
+      },
+    }),
     fontSize: 24,
     fontWeight: 'bold',
-    textShadowColor: 'black',
-    textShadowOffset: {
-      height: 2,
-      width: 2,
-    },
-    textShadowRadius: 3,
+    color: 'white',
   },
   cardOccupationContainer: {
     borderColor: 'black',

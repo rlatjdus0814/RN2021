@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Image } from 'react-native'
 
+//프로필 카드에 border속성 적용하기
 class App extends Component {
   render() {
     return (

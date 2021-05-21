@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Image } from 'react-native'
 
+//ProfileCard의 스타일을 수정해서 레이아웃 변경
 class App extends Component {
   render() {
     return (

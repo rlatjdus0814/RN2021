@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
+//다양한 border radius 조합 지정하기
 class App extends Component {
   render() {
     return (

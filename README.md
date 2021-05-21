@@ -1,6 +1,78 @@
 # React-Native 2021
 # 201930301 김서연
 
+## 05/21
+### 1. Text 컴포넌트 & View 컴포넌트
+  - View에서 사용되는 대부분의 스타일을 Text에서도 사용 가능
+  - Text에서 사용되는 스타일은 View에서 사용 불가
+
+### 2. Font Style
+  - fontFamily 속성에 여러 개의 폰트 지정 불가
+  - 안드로이드에서 지원하지 않는 폰트가 지정 -> 기본 폰트 사용
+  - 기본 폰트 외에 다른 폰트를 사용하려면 Platform 컴포넌트 사용
+  ```java
+    import { Platform } from 'react_native';
+    ~
+    {Platform.OS}
+    ~
+    cardName: {
+      ...Platform.select({
+        ios: { //플랫폼이 ios면 폰트는 'American Typewriter'
+          fontFamily: 'American Typewriter',
+        },
+        android: { //플랫폼이 android면 폰트는 'monospace'
+          fontFamily: 'monospace',
+        },
+      }),
+    },
+  ```
+  1. font 속성
+   - ① fontSize : 텍스트 크키 조정, 기본 크기는 14px
+   - ② fontStyle : normal(기본) / italic(기울어짐) 두 옵션만 사용 가능
+   - ③ fontWeight : 텍스트 굵기, 기본값은 normal / 400
+
+### 3. 텍스트 장식하기
+  : Text컴포넌트에 장식 스타일 적용하는 방법
+  1. iOS & Android 지원 속성들
+   - ① lineHeight: Text의 높이 지정
+   - ② textAlign: 요소 내 텍스트를 수평으로 어떻게 정렬할지 지정
+    > 옵션 : auto, center, right, left, justify
+   - ③ textDecorationLine: 텍스트에 밑줄 또는 취소선 추가
+    > 옵셥 : none(기본), underline, linethrough, inderline line-through
+   - ④ textShadowColor: Text 음영 색상 지정
+   - ⑤ textShadowOffset: Text 음영 위치 지정
+   - ⑥ textShadowRadius: Text 음영 반경 지정
+   ```java
+    textShadowColor: 'black',
+    textShadowOffset: {
+      height: 2,
+      width: 2,
+    },
+    textShadowRadius: 3,
+   ```
+
+  2. Android 지원 속성들
+   - ① textAlignVertical
+
+  3. iOS 지원 속성들
+   - ① letterSpacing: 텍스트 글자 사이의 간격 지정
+   - ② textDecorationColor: 선의 색상 변경
+   - ③ textDecorationStyle: 선의 스타일 변경
+   - ④ writingDirection: 텍스트 작성 방향 지정
+
+  ### 4. 네비게이션(Navigation)
+  : 앱의 핵심 기능 중 하나
+  - 앱을 개발하기 전 네비게이션과 라우팅 계획 반드시 수립
+  - 탭(tab-based) 네이게이션, 스택(stack-based) 네비게이션, 드로어(drawer-based) 네비게이션
+  1. 탭(tab-based) 네이게이션
+  : 화면의 위나 아래에 탭이 있고, 탭을 터치 시 연결된 페이지로 라우팅 됨
+  2. 스택(stack-based) 네비게이션
+  : 기존 화면 위에 다른 화면이 스택 구조로 쌓이는 방법
+  - 화면 이동 후 스택에 있는 이전 화면으로 되돌아가거나 다음 화면을 이동 가능
+  3. 드로어(drawer-based) 네비게이션
+  : 화면의 왼쪽이나 오른쪽에서 나오는 사이드 메뉴
+  - 메뉴 항목 선택 시 드로어는 닫히고, 메뉴 화면으로 이동
+
 ## 05/14
 ### border 속성 지정하기
   - border : 컴포넌트 경계의 테두리

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
+//margin을 padding으로 변경
 class App extends Component {
   render() {
     return (

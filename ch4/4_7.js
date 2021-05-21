@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text } from 'react-native'
 
+//ProfileCard 컴포넌트를 위한 초기 형태
 class App extends Component {
   render() {
     return (

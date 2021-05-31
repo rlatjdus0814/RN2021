@@ -1,6 +1,217 @@
 # React-Native 2021
 # 201930301 김서연
 
+## 05/28
+### 1.  React Navigation 사이트
+  - https://reactnavigation.org/
+  - 예쁜 Navigation은 Material Navigation 이용 -> 깔끔하고 예쁜 디자인 이용 가능
+
+  - ① Getting started(초기 세팅)
+    - npm install @react-navigation/native
+    - npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+    - npm install @react-navigation/stack
+    - npm install @react-navigation/bottom-tabs
+    - npm install @react-navigation/drawer
+
+  - ② index.js 나 App.js에 import 작성하기
+    ```java
+    import 'react-native-gesture-handler';
+    import { NavigationContainer } from '@react-navigation/native';
+
+    export default function App() {
+      return (
+        <NavigationContainer>{/* 코드 작성하기 */}</NavigationContainer>
+      );
+    }
+    ```
+  
+### 2. Stack Navigation
+  - stack Navi를 이용하면 각 스크린 간의 스택이 쌓임
+  - 스택이 쌓이는 것이기 때문에 뒤로 가기 버튼을 눌렀을 때 이동하기 전 스크린으로 돌아감
+
+  1. Stack.Navigator
+  - Stack.Screen 구성 요소를 사용해 콘텐츠 렌더링을 하는 구성 요소
+
+  2. Stack.Screen 구성 요소
+  - name : 경로 이름
+  - component : 경로에 렌더링 할 구성요소 지정
+
+  ```java
+    import * as React from 'react';
+    import { View, Text } from 'react-native';
+    import { NavigationContainer } from '@react-navigation/native';
+    import { createStackNavigator } from '@react-navigation/stack';
+
+    function HomeScreen() {
+      return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>Home Screen</Text>
+        </View>
+      );
+    }
+
+    function DetailsScreen() {
+      return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>Details Screen</Text>
+        </View>
+      );
+    }
+
+    const Stack = createStackNavigator();
+
+    function App() {
+      return (
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Details" component={DetailsScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      );
+    }
+
+    export default App;
+  ```
+
+### 3. Tab Navigation
+  - 모바일 앱에서 가장 일반적인 네이게이션 스타일
+  - 스크린 하단이나 헤더 아래 탭 생성 가능
+  1. 외관 커스터마이즈
+  - tabBarIcon
+    - bottom tab navigator에서 지원
+    - tabBarIcon의 상태, 아이콘 색상, 아이콘의 크기 설정 가능
+  - tabBarOptions
+    - tab 활성화/비활성화 시 옵션을 추가할 수 있음
+
+  ```java
+    import * as React from 'react';
+    import { Button, Text, View } from 'react-native';
+    import { NavigationContainer } from '@react-navigation/native';
+    import { createStackNavigator } from '@react-navigation/stack';
+    import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+    function DetailsScreen() {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Details!</Text>
+        </View>
+      );
+    }
+
+    function HomeScreen({ navigation }) {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Home screen</Text>
+          <Button
+            title="Go to Details"
+            onPress={() => navigation.navigate('Details')}
+          />
+        </View>
+      );
+    }
+
+    function SettingsScreen({ navigation }) {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Settings screen</Text>
+          <Button
+            title="Go to Details"
+            onPress={() => navigation.navigate('Details')}
+          />
+        </View>
+      );
+    }
+
+    const HomeStack = createStackNavigator();
+
+    function HomeStackScreen() {
+      return (
+        <HomeStack.Navigator>
+          <HomeStack.Screen name="Home" component={HomeScreen} />
+          <HomeStack.Screen name="Details" component={DetailsScreen} />
+        </HomeStack.Navigator>
+      );
+    }
+
+    const SettingsStack = createStackNavigator();
+
+    function SettingsStackScreen() {
+      return (
+        <SettingsStack.Navigator>
+          <SettingsStack.Screen name="Settings" component={SettingsScreen} />
+          <SettingsStack.Screen name="Details" component={DetailsScreen} />
+        </SettingsStack.Navigator>
+      );
+    }
+
+    const Tab = createBottomTabNavigator();
+
+    export default function App() {
+      return (
+        <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen name="Home" component={HomeStackScreen} />
+            <Tab.Screen name="Settings" component={SettingsStackScreen} />
+          </Tab.Navigator>
+        </NavigationContainer>
+      );
+    }
+  ```
+
+### 4. Drawer Navigation
+  - 보통 화면의 좌측이나 우측에서 햄버거 아이콘으로 나타냄
+  - 평소에는 화면의 한 쪽에 숨겨져 있다가 사용자가 액션을 취하면 화면에 나타남
+
+  ```java
+    import * as React from 'react';
+    import { Button, View } from 'react-native';
+    import { createDrawerNavigator } from '@react-navigation/drawer';
+    import { NavigationContainer } from '@react-navigation/native';
+
+    function HomeScreen({ navigation }) {
+      return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Button
+            onPress={() => navigation.navigate('Notifications')}
+            title="Go to notifications"
+          />
+        </View>
+      );
+    }
+
+    function NotificationsScreen({ navigation }) {
+      return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Button onPress={() => navigation.goBack()} title="Go back home" />
+        </View>
+      );
+    }
+
+    const Drawer = createDrawerNavigator();
+
+    export default function App() {
+      return (
+        <NavigationContainer>
+          <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen name="Home" component={HomeScreen} />
+            <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      );
+    }
+  ```
+
+### Expo 
+  - React 애플리케이션을 위한 프레임 워크
+
+  - ① 초기 세팅
+    - 설치 : npm install --global expo-cli
+    - 프로젝트 생성 : expo init my-project 
+  - ② 시현
+    - 브라우저에서 생성되는 QR코드를 'expo go'라는 앱을 이용해 실제로 내가 만든 앱을 시현해 볼 수 있음
+
+
 ## 05/21
 ### 1. Text 컴포넌트 & View 컴포넌트
   - View에서 사용되는 대부분의 스타일을 Text에서도 사용 가능

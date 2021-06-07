@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         shadowColor: 'black',
-        shadowOffset:{
+        shadowOffset: {
           height: 10,
         },
         shadowOpacity: 1,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         shadowColor: 'black',
-        shadowOffset:{
+        shadowOffset: {
           height: 10,
         },
         shadowOpacity: 1,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     borderLeftWidth: 0,
   },
   cardOccupation: {
-    marginTop:10,
+    marginTop: 10,
     marginBottom: 10,
   },
   cardDesription: {
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App 
+export default App
 
 
 

@@ -1,6 +1,78 @@
 # React-Native 2021
 # 201930301 김서연
 
+## 06/04
+### 1. Redux란?
+  - 자바스크립트 앱을 위한 예측 가능한 state 컨테이너
+  - 앱에 하나밖에 없는 전역 상태의 객체
+  - 전역 state 객체는 react native 컴포넌트에서 props로 전달
+  - redux state의 데이터가 변경 -> 새 데이터가 전제 앱의 props로 전달
+  - 앱의 state를 store로 이동시켜 데이터 관리
+  - 전역 state를 만들고 관리하는 context를 이용해 동작함
+
+### 2. Context
+  - 전역변수를 만드는 React API
+  - props를 사용하지 않고 맵 전체에서 데이터 전달 가능
+  - Provider로 감싼 데이터나 함수는 Consumer로 감싼 자식 컴포넌트에서 참조 가능
+  ```java
+  const ThemeContext = React.createContext()
+
+  <ThemeContext.Provider>
+    <ThemeContext.Consumer>
+      ...
+    </ThemeContext.Consumer>
+  </ThemeContext.Provider>
+  ```
+
+### 3. Provider와 스토어
+  - 자식 컴포넌트에 데이터를 전달하는 부모 컴포넌트
+  - Redux에서 provider는 앱 전체에 전역 state를 전달
+  ```java
+    import { Provider } from 'react-redux' //react-redux에서 Provider 래퍼(Provider wrapper) 가져오기
+    import { createStore } from 'redux'
+
+    const store = createStore(rootReducer) //rootReducer를 이용해서 store객체 생성
+
+    //Provider컴포넌트로 감싼 Books 컴포넌트 반환, Provider의 prop로 store를 전달
+    <Provider store={store}>
+      <Books />
+    </Provider>
+  ```
+
+### 4. Connect 함수
+  - react-redux의 함수
+  - 자식 컴포넌트에서 store를 참조
+  - 다른 함수를 반환하는 커링 함수
+  ```
+  connect(args)(args)
+  ```
+  - 첫 번째 매개변수
+    - Redux의 전역 state를 참조할 수 있게 해주는 함수
+    - state객체를 참조해서 Redux가 유지하는 모든 데이터 참조 가능
+  - 두 번째 매개변수 
+    - 첫 번째 함수의 결과에서 반환된 객체를 컴포넌트에 전달
+    - 반환된 객체는 props로 사용
+
+### 5. 액션(Action) 추가
+  - 스토어에 데이터를 보내고, Reducer를 업데이트하는 객체 반환
+  - action을 통해 스토어의 데이터 변경
+  - Reducer가 사용 가능하도록 type 속성 포함
+  - Redux의 dispatck 함수로 action 호출 시, 앱의 모든 Reducer에 action 전달
+  - action의 type 확인 후 -> Reducer와 관련된 action에 따라 Reducer가 반환한 것을 업데이트
+
+### 6. uuid 라이브러리
+  - ID 생성 알고리즘 제공
+  - v4 알고리즘 사용 -> 임의의 32글자로 된 문자열 생성
+  - uuidV4()를 호출하여 새 고유 식별자 부여
+  - uuid 이용하여 배열의 항목을 식별하여 삭제 가능
+  ```
+    npm install uuid
+
+    import uuidV4 from 'uuid/v4'
+  ```
+
+
+
 ## 05/28
 ### 1.  React Navigation 사이트
   - https://reactnavigation.org/

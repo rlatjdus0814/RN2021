@@ -35,6 +35,7 @@ class Books extends React.Component {
   }
 
   render() {
+    //connect함수가 books 배열을 반환 -> 이 배열을 props로 참조 가능
     const { books } = this.props
 
     return (
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
   },
 })
 
+//리덕스의 상태 객체를 인수로 전달받고, 하나의 키를 포함한 객체를 반환, 이 키는 books 배열을 포함
 const mapStateToProps = (state) => ({
   books: state.bookReducer.books
 })
@@ -151,4 +153,5 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Books)
+//connect(리덕스의 전역상태를 참조, 첫번쨰 함수의 결과에서 반환된 객체를 Books컴포넌트에 전달)
 

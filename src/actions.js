@@ -1,4 +1,5 @@
-export const ADD_BOOK = 'ADD_BOOK'
+//리듀서에서 데이터를 변경하려면 액션을 통해서 변경
+export const ADD_BOOK = 'ADD_BOOK' //리듀서에서 재사용할 수 있도록 ADD_BOOK 상수를 만들어서 export
 export const REMOVE_BOOK = 'REMOVE_BOOK'
 import uuidV4 from 'uuid/v4'
 
@@ -9,7 +10,6 @@ export function removeBook(book) {
   }
 }
 
-//리듀서에서 재사용할 수 있도록 ADD_BOOK 상수를 만들어서 export
 function fetchBooks() {
   return {
     type: 'FETCH_BOOKS'

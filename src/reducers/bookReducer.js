@@ -19,7 +19,7 @@ const bookReducer = (state = initialState, action) => {
       }
 
     case REMOVE_BOOK:
-      const index = state.books.findIndex(
+      const index = state.books.findIndex( //삭제할 도서의 index 찾기
         book => book.id === action.book.id
       )
       return {
